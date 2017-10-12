@@ -3,7 +3,7 @@ Laundry Waves is the first production level hybrid mobile app developed complete
 
 The app is live on Google PlayStore and is gaining popularity in Hyderabad City.
 
-#!! Important !!#
+# !! Important !! #
 This source code is for educational purposes only.
 The live source code of Laundry Waves is present as a private repository.
 
