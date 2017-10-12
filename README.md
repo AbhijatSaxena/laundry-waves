@@ -20,13 +20,9 @@ The live source code of Laundry Waves is present as a private repository.
 
 ### Basic Setup ###
 run **npm install**
-
 run **bower install**
-
 run **ionic platform add android**
-
 run **ionic platform add ios**
 
 ### run livereloadable project ###
-
 run **ionic serve**
