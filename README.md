@@ -1,4 +1,4 @@
-# laundry-waves
+# Laundry Waves
 Laundry Waves is the first production level hybrid mobile app developed completely using Ionic v1 and is fully functional.
 
 The app is live on Google PlayStore & Apple's App Store and is gaining popularity in Hyderabad City.
