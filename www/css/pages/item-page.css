@@ -1,0 +1,59 @@
+.item-page .slider-slide h3 {
+  color: #fff;
+  margin-top: 10px;
+}
+
+.item-page .scroll {
+  height: 100%;
+}
+
+.item-page .item-input {
+  height: 35px;
+   padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 6px;
+}
+
+/*Adjustments for catalog items*/
+.platform-ios .item-page .list {
+  padding-top: 115px;
+  padding-bottom: 48px;
+}
+
+.platform-android .item-page .list {
+  padding-top: 93px;
+  padding-bottom: 45px;
+}
+
+.item-page .list {
+  padding-top: 93px;
+  padding-bottom: 45px;
+}
+
+.item-page ion-scroll.scroll-view.ionic-scroll {
+  overflow-x: hidden;;
+  overflow-y: hidden;;
+}
+
+.item-page .item {
+  font-size: 13px;
+}
+
+.item-page .item.active {
+  background-color: white;
+}
+
+.item-page .item-incdec {
+  cursor: pointer;
+  color: #8f8f8f;
+  font-size: 200%;
+}
+
+.item-page .item-incdec:active {
+  color: #3390d3;
+}
+
+.item-page .item-image {
+  margin-left: 5px;
+  margin-right: 5px;;
+}

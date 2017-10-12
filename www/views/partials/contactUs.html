@@ -1,0 +1,36 @@
+<ion-modal-view class="modal-view">
+    <ion-header-bar>
+        <h1 class="title modal-title">Contact</h1>
+        <a class="button button-clear" ng-click="contact_us_modal.hide()"><span class="icon ion-close"></span></a>
+    </ion-header-bar>
+    <ion-content class="no-padding">
+    <form name="contactUsForm" method="post" action="mailto:support@laundrywaves.com" enctype="text/plain">
+    	<div class="list">
+		  <label class="item item-input">
+		    <span class="input-label">Name</span>
+		    <input type="text" name="Name" ng-model="contactDetails.name" placeholder="First Name" required>
+		  </label>
+		  <label class="item item-input">
+		    <span class="input-label">Email</span>
+		    <input type="text" name="email" ng-model="contactDetails.email" placeholder="Email">
+		  </label>
+		  <label class="item item-input">
+		    <span class="input-label">Phone</span>
+		    <input type="text" name="phone" ng-model="contactDetails.phone" placeholder="Phone" required>
+		  </label>
+		  <label class="item item-input">
+		    <span class="input-label">Message</span>
+		    <textarea type="text" name="message" ng-model="contactDetails.message" placeholder="Message" required></textarea>
+		  </label>
+		  <button class="button button-block button-positive" type="submit" value="send">
+			  Submit
+		  </button>
+		</div>
+	</form>
+	<div class="card">
+	  <div class="item item-text-wrap">
+	    LaundryWaves, East Maredpally
+	  </div>
+	</div>
+    </ion-content>
+</ion-modal-view>

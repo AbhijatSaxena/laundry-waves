@@ -1,0 +1,77 @@
+<ion-view class="account-view">
+  <ion-nav-title>
+    <span>Orders</span>
+  </ion-nav-title>
+  <ion-nav-buttons side="left">
+    <button class="home-nav" style="border: none; background-color: transparent;font-size: 18px"
+            ng-click="resetLocalStorage()">
+      <span class="">Reset</span>
+    </button>
+  </ion-nav-buttons>
+  <ion-nav-buttons side="right">
+    <button class="home-nav" style="border: none; background-color: transparent;font-size: 18px"
+            native-ui-sref="{{getLastView()}}" native-ui-sref-opts=""
+            native-options="{type: 'slide', direction:'down'}">
+      <span class="ion-chevron-down"></span>
+    </button>
+  </ion-nav-buttons>
+  <ion-content class="order-page">
+    <ion-scroll style="height:100%;">
+      <ion-list>
+        <div ng-repeat="category in categories track by category.id">
+          <ion-item class="item-divider text-center item-category" ng-if="getFilteredItem(category.id).length > 0">
+            {{category.name}}
+          </ion-item>
+          <ion-item class="no-padding selected-item"
+                    ng-repeat="item in getFilteredItem(category.id) track by item.item_id"
+                    ng-if="item.qty > 0">
+            <div class="row no-padding item-details">
+              <div class="col no-padding">
+                <!--Upper Row-->
+                <div class="row">
+                  <div class="col col-75  item-text-wrap item-name">
+                    <p>{{item.item_name}}</p>
+                  </div>
+                  <!-- <div class="col col-30 text-left">
+                    &#8377;{{item.item_cost}}
+                    <span ng-show="item.qty > 0">X {{item.qty}}</span>
+                  </div> -->
+                  <div class="col col-20 col-offset-15 text-right ng-binding item-price">
+                    &#8377;{{item.qty * item.item_cost}}
+                  </div>
+                </div>
+
+                <!--Lower Row-->
+                <div class="row">
+                  <div class="col col-30 col-center button button-small no-padding"
+                       style="background-color: #3390d3; color: white;" ng-click="showAddon(item)">
+                    Addon
+                  </div>
+                  <div class="col col-10 col-offset-50 col-center no-padding" style="text-align: center;">
+                    <i class="ion-android-remove-circle item-incdec"
+                       ng-click="decrementQty(item)">
+                    </i>
+                  </div>
+                  <div class="col col-10 col-center item-count">
+                    {{item.qty}}
+                  </div>
+                  <div class="col col-10 col-center no-padding" style="text-align: center;">
+                    <i class="ion-android-add-circle item-incdec"
+                       ng-click="incrementQty(item, 99)">
+                    </i>
+                  </div>
+          
+                </div>
+              </div>
+            </div>
+          </ion-item>
+        </div>
+      </ion-list>
+    </ion-scroll>
+  </ion-content>
+<!--   <ion-footer-bar style="margin-bottom: 50px">
+    <div class="title" style="font-size: 14px; cursor: pointer;" ui-sref="app.address">
+      Confirm Order
+    </div>
+  </ion-footer-bar> -->
+</ion-view>

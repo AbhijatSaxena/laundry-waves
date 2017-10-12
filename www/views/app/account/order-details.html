@@ -1,0 +1,134 @@
+<ion-view class="account-view">
+  <ion-nav-title>
+    <span>Order Details</span>
+  </ion-nav-title>
+  <ion-nav-buttons side="left">
+    <button class="home-nav" style="border: none; background-color: transparent;font-size: 18px"
+            native-ui-sref="app.orderHistory" native-ui-sref-opts=""
+            native-options="{type: 'slide', direction:'right'}">
+      <span class="ion-ios-arrow-back">&nbsp;Back</span>
+    </button>
+  </ion-nav-buttons>
+  <ion-content>
+    <div class="row">
+      <div class="col text-left">
+        <span style="font-weight: 500">
+        Order ID: #{{selectedOrder.order_id}}
+        </span>
+        <br/>
+        <span style="font-size: 12px; color: grey">
+          {{parseDate(selectedOrder.created_at.date)}}
+        </span>
+      </div>
+    </div>
+    <hr/>
+    <div class="row">
+      <div class="col">
+        <div style="font-size: 17px; font-weight: 700">
+          Bill Details
+          <hr class="lightHr"/>
+        </div>
+      </div>
+    </div>
+      <div class="col" ng-repeat="item in orderDetails.items">
+        <div class="row no-padding" style="font-weight: 500" >
+          <div class="col no-padding">
+            {{item.item_service}}
+          </div>
+        </div>
+        <div class="row no-padding">
+          <div class="col no-padding">
+            <div class="row no-padding">
+              <div class="col no-padding" style="padding-bottom: 5px">
+                {{item.item_count}}&nbsp;x&nbsp;{{item.item_name}}
+              </div>
+              <div class="col text-right no-padding">
+                &#8377;{{item.item_count*item.item_cost}}
+              </div>
+            </div>
+            <div class="row no-padding" ng-repeat="addon in item.item_addons" ng-if="addon.addon_count > 0">
+              <div class="col no-padding">
+                {{addon.addon_count}}&nbsp;x&nbsp;{{addon.addon_name}}
+              </div>
+              <div class="col text-right no-padding">
+                &#8377;{{addon.addon_count*addon.addon_cost}}
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr class="lightHr"/>
+      </div>
+    <!--ITEM PRICING-->
+    <!-- <div class="row" ng-repeat="(key, value) in orderDetails | groupBy: 'item_service'">
+      <div class="col">
+        <div class="row no-padding" style="font-weight: 500">
+          <div class="col no-padding">
+            {{key}}
+          </div>
+        </div>
+        <div class="row no-padding" ng-repeat="order in value">
+          <div class="col no-padding">
+            <div class="row no-padding">
+              <div class="col no-padding" style="padding-bottom: 5px">
+                {{order.item_count}}&nbsp;x&nbsp;{{order.item_name}}
+              </div>
+              <div class="col text-right no-padding">
+                &#8377;{{order.item_count*order.item_cost}}
+              </div>
+            </div>
+            <div class="row no-padding" ng-repeat="addon in order.item_addons"
+                 ng-if="addon.addon_count > 0">
+              <div class="col no-padding">
+                {{addon.addon_count}}&nbsp;x&nbsp;{{addon.addon_name}}
+              </div>
+              <div class="col text-right no-padding">
+                &#8377;{{addon.addon_count*addon.addon_cost}}
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr class="lightHr"/>
+      </div>
+    </div> -->
+    <div class="row">
+      <div class="col">
+        Subtotal
+      </div>
+      <div class="col text-right">
+        &#8377;{{selectedOrder.subtotal}}
+      </div>
+    </div>
+    <div class="row" ng-show="selectedOrder.rPointsUsed > 0">
+      <div class="col">
+        Redeemable Amount
+      </div>
+      <div class="col text-right">
+        -&nbsp;&#8377;{{selectedOrder.rPointsUsed}}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        Total
+      </div>
+      <div class="col text-right">
+        &#8377;{{selectedOrder.totalAmount}}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        VAT and service tax
+      </div>
+      <div class="col text-right">
+        &#8377;{{selectedOrder.vat}}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        Total Payable Amount
+      </div>
+      <div class="col text-right">
+        &#8377;{{selectedOrder.totalAmountPaid}}
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

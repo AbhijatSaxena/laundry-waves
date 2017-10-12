@@ -1,0 +1,309 @@
+<ion-view class="auth-view" cache-view="false">
+  <ion-nav-title>
+    Check Out
+  </ion-nav-title>
+  <ion-nav-buttons side="left">
+    <button class="home-nav" style="border: none; background-color: transparent;font-size: 18px"
+            native-ui-sref="app.home" native-ui-sref-opts="" native-options="{type: 'slide', direction:'down'}">
+      <span class="ion-chevron-left">&nbsp;Back</span>
+    </button>
+
+  </ion-nav-buttons>
+  <ion-content class="address-page no-padding">
+    <div class="row no-padding">
+      <div class="col no-padding">
+        <!--Apartment Mode-->
+        <form name="addressForm" novalidate ng-submit="placeOrder(addressForm, redeem)"
+              ng-if="profile.type == 'apartment'">
+          <div class="text-left col col-70" ng-if="newAddress"><h5>&nbsp; Select Address</h5></div>
+          <div class="text-left col col-30" ng-if="!newAddress"><h5><i class="icon-left ion-home"></i> Address</h5></div>
+
+          <div class="form-fields-outer list list-inset" ng-if="newAddress">
+            <!--Apartment Name-->
+            <label class="item item-input">
+              <input class="item item-input" style="background-color: white" type="text" placeholder="Apartment Type"
+                     name="apartmentName" ng-model="apartmentAddress.apartmentName" readonly>
+            </label>
+
+                        <!--Block-->
+            <label class="item item-input item-select" ng-class="{ 'has-errors' : addressForm.block.$invalid && addressForm.$submitted,
+                       'no-errors' : addressForm.block.$valid && addressForm.$submitted}">
+              <span class="input-label" style="color: #999999;">
+                <span style="font-size: 14px;">Block</span>
+              </span>
+              <select name="block" ng-change="getFlats()" data-ng-model="apartmentAddress.block"
+                      data-ng-options="block.id as block.name for block in blocks" required>
+              </select>
+            </label>
+            <label class="item item-input item-select" ng-class="{ 'has-errors' : addressForm.flat.$invalid && addressForm.$submitted,
+                       'no-errors' : addressForm.flat.$valid && addressForm.$submitted}">
+              <span class="input-label" style="color: #999999;">
+                <span style="font-size: 14px;">Flat</span>
+              </span>
+              <select name="flat" ng-disabled="!apartmentAddress.block" data-ng-model="apartmentAddress.flat"
+                      data-ng-options="flat.name for flat in flats" required>
+              </select>
+            </label>
+            <label class="item item-input">
+              <input type="text" placeholder="Detailed Address" name="phone" ng-model="apartmentAddress.address" readonly>
+            </label>
+          </div>
+          <div ng-if="!newAddress">
+            <div class="card crd" style="margin-top: -5px;">
+              <div class="item item-thumbnail-left" style="padding-left:0px;" >
+              <div class="row">
+              	<div class="col col-20"><img src="img/fname.png" alt=""></div>
+                <div class="col col-80">
+                	<div ng-model="apartmentAddress"><b>{{apartmentAddress.apartmentName}}</b></div>
+		            <div ng-model="apartmentAddress">Block : {{apartmentAddress.flat}}</div>
+        	        <div ng-model="apartmentAddress">Flat :   {{apartmentAddress.block}}</div>
+		            <div ng-model="apartmentAddress">Address:    {{apartmentAddress.address}}</div>
+                </div>
+              </div>
+            </div>
+            </div>
+            </div>
+          <div class="row no-padding">
+            <div class="col no-padding">
+              <div class="text-left padding-horizontal">
+                <h5><i class="ion-card"></i>&nbsp;Payment</h5>
+              </div>
+              <div class="card" style="margin-top: 0">
+                <div class="item">
+                  <ion-radio name="cod" ng-model="choice" ng-value="'COD'">
+                    Cash on Delivery
+                  </ion-radio>
+                  <div class="terms text-center" style="padding-top: 5px">Right now we are providing cash on delivery
+                    only..<br/>other payment options coming soon !
+                  </div>
+                </div>
+              </div>
+
+              <div class="text-left padding-horizontal">
+                <div style="font-weight: 400"><i class="ion-card"></i>&nbsp;Redeem Reward Points</div>
+              </div>
+              <div class="card" style="margin-top: 0;">
+                <div class="item">
+                  <div class="row">
+                    <div class="col col-center col-75 rewardItem-left">
+                      <div>Total Rewards Points</div>
+                    </div>
+                    <div class="col col-25 rewardItem-right">
+                      {{rewardPoints}}
+                    </div>
+                  </div>
+                  <div class="row" ng-if="minRewardsRestriction">
+                    <div class="col col-center col-75 item-text-wrap">
+                      Redeem
+                    </div>
+                    <div class="col col-center col-25 text-right" style="padding-right: 0">
+                      <label class="toggle">
+                        <input type="checkbox" ng-model="redeem" ng-change="toggleChange()">
+
+                        <div class="track">
+                          <div class="handle"></div>
+                        </div>
+                      </label>
+                    </div>
+                  </div>
+                  <div class="row" ng-if="!minRewardsRestriction">
+                    <div class="col col-center item-text-wrap">
+                      You can redeem your reward points after crossing 800 points
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col">
+                      Total Amount
+                    </div>
+                    <div class="col text-right">
+                      &#8377;{{total}}
+                    </div>
+                  </div>
+                  <div class="row" ng-show="redeem">
+                    <div class="col">
+                      Redeemable Amount
+                    </div>
+                    <div class="col text-right">
+                      -&#8377;{{redeemableAmount}}
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col col-center col-75 rewardItem-left">
+                      <div>Total Amount to pay</div>
+                    </div>
+                    <div class="col col-25 rewardItem-right">
+                      &#8377;{{amountToPay()}}
+                    </div>
+                  </div>
+                  <div class="item-text-wrap text-center" style="font-size: 60%; line-height: 10px">
+                    If the order amount is less than the redeemable amount,
+                    the rest of the amount will be stored back to your rewards points
+                  </div>
+                </div>
+              </div>
+              <button type="submit" class="button button-block"
+                      style="background-color: #3390d3;color: white">
+                <i class="ion-ios-cart-outline"></i>
+                &nbsp;Place Order
+              </button>
+            </div>
+          </div>
+        </form>
+
+        <!--Individual Mode-->
+        <form name="individualAddressForm" novalidate ng-submit="placeOrder(individualAddressForm)" ng-if="profile.type == 'user'">
+        <div class="row">
+          <div class="text-left col col-70"><h5> Select Address</h5></div>
+          <div class="text-left col col-30 text-right" ><h5 class="app-color"><a ng-click="addressModal.show();clearForm(individualAddressForm)">Add New</a></h5></div>
+        </div>
+          <!-- <div class="text-right"><h5>Add New</h5></div> -->
+          <div class="form-fields-outer list list-inset" ng-if="newAddress">
+            <label class="item item-input" ng-class="{ 'has-errors' : showErrors}">
+              <input type="text" placeholder="Feild 1" name="field1" ng-model="individualAddress.field1" required>
+            </label>
+
+            <div class="error-container"
+                 ng-show="individualAddressForm.field1.$error"
+                 ng-messages="individualAddressForm.field1.$error">
+              <div ng-messages-include="error-list.html"></div>
+            </div>
+
+            <label class="item item-input item-select" ng-class="{ 'has-errors' : showErrors}">
+              <!-- <input type="text" placeholder="Area" name="area" ng-model="individualAddress.area" required> -->
+              <div class="input-label">
+                Select Area
+              </div>
+               <select name="area" ng-model="individualAddress.area" required>
+                <option ng-repeat="area in areas" value="{{area.name}}">{{area.name}}</option>
+               </select>
+            </label>
+
+
+            <div class="error-container"
+                 ng-show="individualAddressForm.area.$error"
+                 ng-messages="individualAddressForm.area.$error">
+              <div ng-messages-include="error-list.html"></div>
+            </div>
+
+            <label class="item item-input" ng-class="{ 'has-errors' : showErrors}">
+              <input type="text" placeholder="Land Mark" name="landMark" ng-model="individualAddress.landMark" required>
+            </label>
+
+            <div class="error-container"
+                 ng-show="individualAddressForm.landMark.$error"
+                 ng-messages="individualAddressForm.landMark.$error">
+              <div ng-messages-include="error-list.html"></div>
+            </div>
+
+            <label class="item item-input" ng-class="{ 'has-errors' : showErrors}">
+              <input type="number" placeholder="Pin Code" name="pincode" ng-model="individualAddress.pincode" required>
+            </label>
+
+            <div class="error-container"
+                 ng-show="individualAddressForm.pincode.$error"
+                 ng-messages="individualAddressForm.pincode.$error">
+              <div ng-messages-include="error-list.html"></div>
+            </div>
+          </div>
+		  
+          <div ng-if="!newAddress" style="border-bottom:1px solid #B2B2B2;">
+            <div class=" card crd" style="margin: -16px 5px 0px 20px;; ">
+              <ion-radio class="item " ng-model="individualAddress.addressId" ng-repeat="each in addressess" icon="ion-checkmark-circled" ng-value="{{each.address_id}}" style="padding-left:0;" required>
+                <div class="row">
+              	<div class="col col-20"><img src="img/fname.png" alt=""></div>
+                <div class="col col-80">
+                	<p>{{each.address}}</p>
+                </div> 
+              </div>
+            </div>
+          </div>
+          <div class="row no-padding">
+            <div class="col no-padding">
+              <div class="text-left padding-horizontal">
+                <h5><i class="ion-card"></i>&nbsp;Payment</h5>
+              </div>
+              <div class="crd" style="margin-top: 0">
+                <div class="item">
+                  <ion-radio name="cod" ng-model="choice" icon="ion-checkmark-circled" ng-value="'COD'">
+                    Cash on Delivery
+                  </ion-radio>
+                  <div class="terms text-center" style="padding-top: 5px">Right now we are providing cash on delivery
+                    only..<br/>other payment options coming soon !
+                  </div>
+                </div>
+              </div>
+
+              <div class="text-left padding-horizontal">
+                <div style="font-weight: 400"><i class="ion-card"></i>&nbsp;Redeem Reward Points</div>
+              </div>
+              <div class="crd" style="margin-top: 0;">
+                <div class="item">
+                  <div class="row">
+                    <div class="col col-center col-75 rewardItem-left">
+                      <div>Total Rewards Points</div>
+                    </div>
+                    <div class="col col-25 rewardItem-right">
+                      {{rewardPoints}}
+                    </div>
+                  </div>
+                  <div class="row" ng-if="minRewardsRestriction">
+                    <div class="col col-center col-75 item-text-wrap">
+                      Redeem
+                    </div>
+                    <div class="col col-center col-25 text-right" style="padding-right: 0">
+                      <label class="toggle">
+                        <input type="checkbox" ng-model="redeem" ng-change="toggleChange()">
+
+                        <div class="track">
+                          <div class="handle"></div>
+                        </div>
+                      </label>
+                    </div>
+                  </div>
+                  <div class="row" ng-if="!minRewardsRestriction">
+                    <div class="col col-center item-text-wrap">
+                      You can redeem your reward points after crossing 800 points
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col">
+                      Total Amount
+                    </div>
+                    <div class="col text-right">
+                      &#8377;{{total}}
+                    </div>
+                  </div>
+                  <div class="row" ng-show="redeem">
+                    <div class="col">
+                      Redeemable Amount
+                    </div>
+                    <div class="col text-right">
+                      -&#8377;{{redeemableAmount}}
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col col-center col-75 rewardItem-left">
+                      <div>Total Amount to pay</div>
+                    </div>
+                    <div class="col col-25 rewardItem-right">
+                      &#8377;{{amountToPay()}}
+                    </div>
+                  </div>
+                  <div class="item-text-wrap text-center" style="font-size: 60%; line-height: 10px">
+                    If the order amount is less than the redeemable amount,
+                    the rest of the amount will be stored back to your rewards points
+                  </div>
+                </div>
+              </div>
+              <button type="submit" class="button button-block"
+                      style="background-color: #3390d3;color: white">
+                <i class="ion-ios-cart-outline"></i>
+                &nbsp;Place Order
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

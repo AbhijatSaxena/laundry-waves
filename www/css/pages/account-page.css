@@ -1,0 +1,18 @@
+.account-page .item {
+  font-size: 14px;
+  padding-bottom: 12px;
+  padding-top: 12px;
+}
+
+.account-page .item-divider {
+  color: #3390d3;
+}
+
+.account-page .icon {
+  color: #3390d3;
+  font-size: 23px;
+}
+
+.account-page {
+  background-color: #f5f5f5;
+}

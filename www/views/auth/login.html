@@ -1,0 +1,76 @@
+<ion-view class="auth-view" cache-view="false">
+  <ion-nav-bar>
+    <ion-nav-back-button>
+    </ion-nav-back-button>
+  </ion-nav-bar>
+  <ion-nav-title>
+    Login
+  </ion-nav-title>
+  <ion-content class="no-padding">
+    <div class="row no-padding">
+      <div class="col no-padding">
+        <form name="signInForm" novalidate ng-submit="doLogIn(signInForm, user)">
+          <div class="form-fields-outer list list-inset">
+            <label class="item item-input lbl">
+              <i class="icon"><img src="img/email.png"/></i>
+              <span class="pic" ng-class="{ 'has-errors' : signInForm.email.$invalid && signInForm.$submitted, 'no-errors' : signInForm.email.$valid && signInForm.$submitted}">
+			  <input type="email" placeholder="Email" name="email" ng-model="user.email"
+                     required>
+				</span>
+            </label>
+            <div class="error-container" ng-show="signInForm.email.$error && signInForm.$submitted"
+                 ng-messages="signInForm.email.$error">
+              <div ng-messages-include="error-list.html"></div>
+            </div>
+			<label class="item item-input lbl" >
+              <i>&nbsp;</i>
+              <span class="pic" show-hide-container
+                   ng-class="{ 'has-errors' : signInForm.password.$invalid && signInForm.$submitted,
+                   'no-errors' : signInForm.password.$valid  && signInForm.$submitted}">
+			  <input type="password" placeholder="Password" name="password" ng-model="user.password"
+                     required show-hide-input>
+			  </span>
+            </label>
+            <div class="error-container last-error-container"
+                 ng-show="signInForm.password.$error && signInForm.$submitted"
+                 ng-messages="signInForm.password.$error">
+              <div ng-messages-include="error-list.html"></div>
+            </div>
+            <div class="row">
+              <div class="col text-right" style="padding-bottom: 15px;padding-right: 10px; padding-top:5px;">
+                <a href="#" ng-click="showForgotPassword()">Forgot your password?</a>
+              </div>
+            </div>
+            <div class="row text-center terms">
+              <div class="col" style="padding-right : 10px; padding-left: 10px;padding-top:5px;">
+                By Logging in, you agree to our
+                <a href="#" ng-click="showTerms()">Terms & Conditions</a> and that you have read our
+                <a href="#" ng-click="showPrivacyPolicy()">Privacy Policy</a> Document
+              </div>
+            </div>
+            <div style="padding:5px;">
+			<button type="submit" class="button button-block button-positive" style="background:#3390d3;">
+              <i class="ion-locked"></i>
+              &nbsp;Secure Login
+            </button>
+			</div>
+            <p ng-show="error" class="message error">{{error}}</p>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="row">
+      <hr class="separator-line"/>
+      <span class="separator-mark">OR</span>
+      <hr class="separator-line"/>
+    </div>
+    <div class="row">
+      <div class="col" style="padding:5px;">
+        <a href="tel:+91-0000-00-0000" class="button button-block button-balanced">
+          <i class="ion-ios-telephone" style="font-size: 17px"></i>
+          &nbsp;Call for a Pickup
+        </a>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

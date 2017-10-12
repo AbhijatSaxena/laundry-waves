@@ -1,0 +1,24 @@
+<ion-modal-view class="modal-view auth-view">
+    <ion-header-bar>
+        <h1 class="title modal-title">Address Book</h1>
+        <a class="button button-clear" ng-click="addressBookModal.hide()" style="color:#fff;"><span class="icon ion-ios-close-empty"></span></a>
+    </ion-header-bar>
+    <ion-content class="no-padding">
+   
+   <div class="row profile-header">
+     <div class="col col-75">Your account details</div>
+    <div class="col text-right" ng-click="editForm = true">Edit</div> 
+   </div>
+
+
+      <div class="card crd">
+  <a ng-model="individualAddress.addressId" class="item item-thumbnail-left" ng-repeat="each in addressess" icon="ion-checkmark-circled" ng-value="{{each.address_id}}" >
+		<img src="img/fname.png" alt="">
+		<div class="row">
+		<div col col-90 ><span style="white-space: normal;"> {{each.address}}</span> </div>
+		<div col col-10 ><span class="icon ion-edit" ng-click="addressBookModal.hide()" ui-sref="app.editAddress"></span></div>
+		</div>
+       </a>   
+      </div>
+    </ion-content>
+</ion-modal-view>

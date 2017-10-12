@@ -1,0 +1,56 @@
+.order-page .slider-slide h3 {
+  color: #fff;
+  margin-top: 10px;
+}
+
+.order-page .scroll {
+  height: 100%;
+}
+
+.order-page .tabbed-slidebox .tsb-icons:after {
+  display: none;
+}
+
+.order-page ion-scroll.scroll-view.ionic-scroll {
+  overflow-x: hidden;;
+  overflow-y: hidden;;
+}
+
+.order-page .tabbed-slidebox .slider-slide {
+  background-color: lightgrey;
+}
+
+.order-page .tabbed-slidebox .tsb-icons .scroll a.active {
+  font-size: 1.5em;
+  border-bottom: none;
+  color: #3390d3;
+}
+
+.order-page, .order-page .tsb-icons {
+  background-color: lightgrey;
+}
+
+.order-page .item {
+  font-size: 13px;
+}
+
+.order-page .item.active {
+  background-color: white;
+}
+
+.order-page .item-incdec {
+  cursor: pointer;
+  color: #8f8f8f;
+  font-size: 250%;
+}
+
+.order-page .item-image {
+  margin-left: 5px;
+  margin-right: 5px;;
+}
+
+.order-page .item-category{
+      font-size: 16px;
+    color: #A2A2A2;
+    background-color: #fff;
+}

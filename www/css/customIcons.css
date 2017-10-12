@@ -1,0 +1,39 @@
+.tabs .tab-item .icon.custom-man {
+  background-repeat: no-repeat;
+  background-position: 50%;
+  background-image: url('../img/item/man.png');
+  background-size: contain;
+  height: 25px;
+}
+
+.tabs .tab-item .icon.custom-woman {
+  background-repeat: no-repeat;
+  background-position: 50%;
+  background-image: url('../img/item/woman.png');
+  background-size: contain;
+  height: 25px;
+}
+
+.tabs .tab-item .icon.custom-kid {
+  background-repeat: no-repeat;
+  background-position: 50%;
+  background-image: url('../img/item/kid.png');
+  background-size: contain;
+  height: 25px;
+}
+
+.tabs .tab-item .icon.custom-infant {
+  background-repeat: no-repeat;
+  background-position: 50%;
+  background-image: url('../img/item/infant.png');
+  background-size: contain;
+  height: 25px;
+}
+
+.tabs .tab-item .icon.custom-utilities {
+  background-repeat: no-repeat;
+  background-position: 50%;
+  background-image: url('../img/item/utilities.png');
+  background-size: contain;
+  height: 25px;
+}

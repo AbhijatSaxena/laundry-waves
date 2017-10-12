@@ -1,0 +1,168 @@
+<ion-view class="auth-view" cache-view="false">
+  <ion-nav-bar>
+    <ion-nav-back-button>
+    </ion-nav-back-button>
+  </ion-nav-bar>
+  <ion-nav-title>
+    Register
+  </ion-nav-title>
+  <ion-content class="no-padding" overflow-scroll="false">
+    <!--style="background: url(img/bg/3bg.jpg) no-repeat center center fixed;-->
+    <!-- -webkit-background-size: cover;-->
+    <!-- -moz-background-size: cover;-->
+    <!--background-size: 100% 100%;"-->
+    <div class="row no-padding">
+      <div class="col no-padding">
+        <form name="signUpForm" novalidate ng-submit="doSignUp(signUpForm, user)">
+          <div class="form-fields-outer list list-inset">
+                <label class="item item-input lbl">
+                  <i class="icon"><img src="img/fname.png"/></i>
+              	<span class="pic" ng-class="{ 'has-errors' : signUpForm.firstname.$invalid && signUpForm.$submitted,
+                       'no-errors' : signUpForm.firstname.$valid && signUpForm.$submitted}">
+              		<input class="multi-input" type="text" placeholder="First Name" name="firstname"
+                         ng-model="user.firstName" required>
+                </span>
+                </label>
+				<div class="error-container" ng-show="signUpForm.firstname.$error && signUpForm.$submitted"
+                 ng-messages="signUpForm.firstname.$error">
+					<div ng-messages-include="error-list.html"></div>
+				</div>
+                <label class="item item-input lbl">
+                  <i>&nbsp;</i><img src="">
+              	  <span class="pic">
+                  <input class="multi-input" type="text" placeholder="Last Name" name="lastname"
+                         ng-model="user.lastName">
+                   </span>
+                </label>
+            <label class="item item-input lbl" >
+              <i class="icon"><img src="img/email.png"/></i>
+              <span class="pic" ng-class="{ 'has-errors' : signUpForm.email.$invalid && signUpForm.$submitted,
+                       'no-errors' : signUpForm.email.$valid && signUpForm.$submitted}">
+              <input type="email" placeholder="Email" name="email" ng-model="user.email" required>
+              </span>
+            </label>
+            <div class="error-container" ng-show="signUpForm.email.$error && signUpForm.$submitted"
+                 ng-messages="signUpForm.email.$error">
+              <div ng-messages-include="error-list.html"></div>
+            </div>
+            <label class="item item-input lbl" >
+              <i class="icon"><img src="img/phone.png"/></i>
+              <span class="pic" ng-class="{ 'has-errors' : signUpForm.phone.$invalid && signUpForm.$submitted,
+                       'no-errors' : signUpForm.phone.$valid && signUpForm.$submitted}">
+              <input type="number" placeholder="Phone Number" name="phone" ng-model="user.phoneNo" required
+                     ng-maxlength="10">
+              </span>
+            </label>
+            <div class="error-container" ng-show="signUpForm.phone.$error && signUpForm.$submitted"
+                 ng-messages="signUpForm.phone.$error">
+              <div ng-messages-include="error-list.html"></div>
+            </div>
+            <label class="item item-input lbl" >
+              <i>&nbsp;</i>
+              <span class="pic" show-hide-container ng-class="{ 'has-errors' : signUpForm.password.$invalid && signUpForm.$submitted,
+                       'no-errors' : signUpForm.password.$valid && signUpForm.$submitted}">
+              <input type="password" placeholder="Password" name="password" ng-model="user.password"
+                     required show-hide-input>
+              </span>
+            </label>
+            <div class="error-container" ng-show="signUpForm.password.$error && signUpForm.$submitted"
+                 ng-messages="signUpForm.password.$error">
+              <div ng-messages-include="error-list.html"></div>
+            </div>
+            <label class="item item-input lbl">
+              <i class="icon"><img src="img/refemail.png"/></i>
+              <span class="pic">
+              <input type="text" placeholder="Referral Email (optional)" name="refId" ng-model="user.refId">
+              </span>
+            </label>
+            <label class="item item-input item-select lbl-last" >
+              <i>&nbsp;</i>
+              <span class="pic-last" ng-class="{ 'has-errors' : signUpForm.usertype.$invalid && signUpForm.$submitted,
+                       'no-errors' : signUpForm.usertype.$valid && signUpForm.$submitted}">
+              <span class="input-label" style="color: #999999;">
+                <span style="font-size: 14px;">User Type</span>
+              </span>
+              <select name="usertype" data-ng-model="user.userType"
+                      data-ng-options="opt.value as opt.name for opt in userTypes" required>
+              </select>
+              </span>
+            </label>
+            <div class="error-container" ng-show="signUpForm.usertype.$error && signUpForm.$submitted"
+                 ng-messages="signUpForm.usertype.$error">
+              <div ng-messages-include="error-list.html"></div>
+            </div>
+            <div ng-if="user.userType=='apartment'">
+              <div class="item item-input lbl-last" id="apartment-selection" style="overflow: visible">
+                <i class="icon"><img src="img/apartment.png"/></i>
+                <span class="pic-last" ng-class="{ 'has-errors' : signUpForm.apartment.$invalid && signUpForm.$submitted,
+                       'no-errors' : signUpForm.apartment.$valid && signUpForm.$submitted}">
+                <input type="text" options="apartmentSourceOptions" datasets="apartmentSource" name="apartment"
+                       placeholder="Enter Apartment Name" ng-model="user.apartment" style="background-color: white;"
+                       required sf-typeahead>
+                </span>
+              </div>
+              <div class="error-container" ng-show="signUpForm.apartment.$error && signUpForm.$submitted"
+                   ng-messages="signUpForm.apartment.$error"> 
+                <div ng-messages-include="error-list.html"></div>
+              </div>
+            </div>
+            <button type="submit" class="button button-block"
+                    style="background-color: #3390d3;color: white; margin: 10px auto; width : 95%">
+              <i class="ion-person-add"></i>
+              &nbsp;Sign Up
+            </button>
+            <p ng-show="error" class="message error">{{error}}</p>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="card" style="margin-top: 0">
+      <div class="item item-text-wrap">
+        <div class="row no-padding">
+          <div class="col no-padding text-center">
+            <div style="font-size: 110%; color: #3390d3;margin-bottom: 0;  ">Check Service Availability</div>
+            <div style="font-size: 70%; color : #919191">Check if LaundryWaves is available in your area!</div>
+          </div>
+        </div>
+        <div class="row no-padding">
+          <div class="col" style="padding-top: 15px">
+            <div class="row no-padding">
+              <div class="col no-padding col-75">
+                <div class="form-fields-outer list list-inset" style="border:1px solid #e7e7e7">
+                  <div class="item item-input" style="overflow: visible">
+                    <input type="text" options="apartmentSourceOptions" datasets="apartmentSource" name="area"
+                           placeholder="Area" ng-model="user.area" style="background-color: white;"
+                           ng-change="areaChanged()"
+                           sf-typeahead>
+                  </div>
+                </div>
+              </div>
+              <div class="col col-25 no-padding">
+                <button class="button" style="background-color: #3390d3; color: white; width: 100%; border-radius: 0"
+                        ng-click="validateArea(user)">
+                  Go
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div ng-if="showMsg">
+          <div class="card" ng-if="user.area && areaIsValid">
+            <div class="item item-text-wrap" style="background-color: #33cd5f; color: white">
+              <div class="title text-center" style="font-size: 75%;">
+                Our Service is available in {{user.area.name}}, kindly request a pick-up
+              </div>
+            </div>
+          </div>
+          <div class="card" ng-if="user.area && (!areaIsValid)">
+            <div class="item item-text-wrap" style="background-color: darkred; color: white">
+              <div class="title text-center" style="font-size: 75%;">
+                Our Service is not available in your area!
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

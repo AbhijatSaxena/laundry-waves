@@ -1,0 +1,7 @@
+<ion-nav-bar>
+</ion-nav-bar>
+<ion-nav-view name="menuContent"></ion-nav-view>
+<ion-footer-bar align-title="center" class="bar bar-balanced" style="cursor: pointer; background-color: #233946; border-top:2px solid #3390d3;" ng-click="nextScreen('app.orders')" ng-show="showFooter">
+  <div class="title" style="font-size: 14px"><i class="cart-icon ion-bag" count-badge="{{getItemCount()}}"></i><i class="ion-ios-plus-outline addon-count text-left" count-badge="{{getAddonCount()}}"></i><span class="cart-button">&#8377 {{getTotal()}}   &nbsp;&nbsp;<i class="ion-chevron-right"></i> </span>
+  </div>
+</ion-footer-bar>

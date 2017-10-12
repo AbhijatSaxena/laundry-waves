@@ -1,0 +1,61 @@
+<ion-view class="account-view auth-view">
+  <ion-nav-title>
+    <span>Edit Address</span>
+  </ion-nav-title>
+  <ion-nav-buttons side="left">
+    <button class="home-nav" style="border: none; background-color: transparent;font-size: 18px"
+            native-ui-sref="app.account" native-ui-sref-opts="" native-options="{type: 'slide', direction:'right'}">
+      <span class="ion-ios-arrow-back">&nbsp;Back</span>
+    </button>
+  </ion-nav-buttons>
+  <ion-content class="address-page no-padding">
+    <div class="row no-padding">
+      <div class="col no-padding">
+        <!--Individual Mode-->
+        <form name="individualAddressForm" novalidate>
+              <div class="row">
+          <div class="text-left col app-color"><h5>&nbsp;Add New Address</h5></div>
+
+          </div>
+          <!-- <div class="text-right"><h5>Add New</h5></div> -->
+          <div class="form-fields-outer list list-inset">
+            <label class="item item-input" ng-class="{ 'has-errors' : showErrors}">
+              <input type="text" placeholder="Feild 1" name="field1" ng-model="individualAddress.field1" required>
+            </label>
+
+           <!--  <div class="error-container"
+                 ng-show="individualAddressForm.field1.$invalid && individualAddressForm.field1.$pristine">
+            </div> -->
+
+            <label class="item item-input item-select" ng-class="{ 'has-errors' : showErrors}">
+              <!-- <input type="text" placeholder="Area" name="area" ng-model="individualAddress.area" required> -->
+              <div class="input-label">
+                Select Area
+              </div>
+               <select name="area" ng-model="individualAddress.area" required>
+                <option ng-repeat="area in areas" value="{{area.name}}">{{area.name}}</option>
+               </select>
+            </label>
+
+
+            <label class="item item-input" ng-class="{ 'has-errors' : showErrors}">
+              <input type="text" placeholder="Land Mark" name="landMark" ng-model="individualAddress.landMark" required>
+            </label>
+
+<!--             <div class="error-container"
+                 ng-show="individualAddressForm.landMark.$invalid && individualAddressForm.landMark.$pristine">
+            </div>
+ -->
+            <label class="item item-input" ng-class="{ 'has-errors' : showErrors}">
+              <input type="number" placeholder="Pin Code" name="pincode" ng-model="individualAddress.pincode" required>
+            </label>
+
+<!--             <div class="error-container"
+                 ng-show="individualAddressForm.pincode.$invalid && individualAddressForm.pincode.$pristine">
+            </div>
+ -->            <button class="button button-full button-positive" ng-click="postAddress(individualAddressForm)">Add</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </ion-content>

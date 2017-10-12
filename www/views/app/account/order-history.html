@@ -1,0 +1,29 @@
+<ion-view class="account-view">
+  <ion-nav-title>
+    <span>Order History</span>
+  </ion-nav-title>
+  <ion-nav-buttons side="left">
+    <button class="home-nav" style="border: none; background-color: transparent;font-size: 18px"
+            native-ui-sref="app.account" native-ui-sref-opts="" native-options="{type: 'slide', direction:'right'}">
+      <span class="ion-ios-arrow-back">&nbsp;Back</span>
+    </button>
+  </ion-nav-buttons>
+  <ion-content>
+    <div class="list" style="background:#ddd;">
+      <div class="item item-body" ng-repeat="order in orderHistory | orderBy:'-created_at.date'" style="    font-size: 12px;    border-top: transparent;    border-left: transparent;    border-right: transparent;
+    margin: 0px;     padding: 4px;    margin-bottom: 2px;">
+        <div class="row " style="color:#524C4C;">Order ID: #{{order.order_id}} </div>
+        <div class="row " style="color:#A3A3A3;">{{parseDate(order.created_at.date)}} </div>
+        <hr style="border: 0;    border-top: 1px solid #ddd;">
+        <div class="row " style="padding:0px;">
+	        <div class="col"  style="text-align:center;"><button class=" button-stable" style=" border: 0; background-color: #ddd;    color: #444;    height: 35px !important;    width: 120px;
+    border-radius: 4px;" ng-click="selectOrder(order)" >  View Details </button></div>
+	        <div class="col" style="text-align:center;"><button class=" button-calm"  style="    border: 0;
+    background-color: #3390d3;    color: #fff;    height: 35px !important;    width: 120px;
+    border-radius: 4px;">  Repeat Order </button></div>
+        </div>
+        </div>
+      </div>
+  </ion-content>
+</ion-view>
+ 

@@ -1,0 +1,101 @@
+<ion-view class="account-view">
+  <ion-nav-title>
+    <span>Account</span>
+  </ion-nav-title>
+  <ion-nav-buttons side="right">
+    <button class="home-nav" style="border: none; background-color: transparent;font-size: 18px"
+            ui-sref="app.home">
+      <span class="">Close</span>
+    </button>
+  </ion-nav-buttons>
+  <ion-content class="account-page">
+    <div class="list">
+      <div class="item item-divider">
+        Your Details
+      </div>
+        <div class="row rw1" ui-sref="app.profile">
+          <div class="col col-10">
+            <img src="img/account/my-account.png" width="32px" height="32px"/>
+          </div>
+          <div class="col col-90 cl1">
+            <span>Account</span>
+        <i class="icon ion-ios-arrow-right" style="float:right;"></i>
+          </div>
+        </div>
+        <div class="row rw1" href="#" native-ui-sref="app.orderHistory" native-ui-sref-opts="" native-options="{type: 'slide', direction:'left'}">
+          <div class="col col-10">
+            <img src="img/account/delivered-package.png" width="32px" height="32px"/>
+          </div>
+          <div class="col col-90 cl1">
+            <span>Order History</span>
+        <i class="icon ion-ios-arrow-right" style="float:right;"></i>
+          </div>
+        </div>
+        <div class="row rw1" href="#" native-ui-sref="app.rewards" native-ui-sref-opts="" native-options="{type: 'slide', direction:'left'}">
+          <div class="col col-10">
+            <img src="img/account/coins.png" width="32px" height="32px"/>
+          </div>
+          <div class="col col-90 cl1">
+            <span>Reward Points</span>
+        <i class="icon ion-ios-arrow-right" style="float:right;"></i>
+          </div>
+        </div>
+
+      <div class="item item-divider">
+        Our Details
+      </div>
+      <a class="item item-icon-left item-icon-right" href="#" ng-click="showContactUs()">
+        <i class="icon">
+          <img src="img/account/direction.png" width="32px" height="32px"/>
+        </i>
+        Contact Us
+        <i class="icon ion-ios-arrow-right"></i>
+      </a>
+<!--       <a class="item item-icon-left item-icon-right" href="#">
+        <i class="icon">
+          <img src="img/account/24h-call-service.png" width="32px" height="32px"/>
+        </i>
+        Support
+        <i class="icon ion-ios-arrow-right"></i>
+      </a> -->
+      <a class="item item-icon-left item-icon-right" ng-click="share()" href="#">
+        <i class="icon">
+          <img src="img/account/share.png" width="32px" height="32px"/>
+        </i>
+        Invite and Earn
+        <i class="icon ion-ios-arrow-right"></i>
+      </a>
+      <a class="item item-icon-left item-icon-right" href="#" ng-click="showFAQ()">
+        <i class="icon">
+          <img src="img/account/brainstorming.png" width="32px" height="32px"/>
+        </i>
+        FAQ
+        <i class="icon ion-ios-arrow-right"></i>
+      </a>
+      <a class="item item-icon-left item-icon-right" href="#" ng-click="showTerms()">
+        <i class="icon">
+          <img src="img/account/forum-rules.png" width="32px" height="32px"/>
+        </i>
+        Terms & Conditions
+        <i class="icon ion-ios-arrow-right"></i>
+      </a>
+      <a class="item item-icon-left item-icon-right" href="#" ng-click="showPrivacyPolicy()">
+        <i class="icon">
+          <img src="img/account/locked-thread.png" width="32px" height="32px"/>
+        </i>
+        Privacy Policy
+        <i class="icon ion-ios-arrow-right"></i>
+      </a>
+<!--      <a class="item item-icon-left item-icon-right" href="#" ng-click="showLogOutMenu()">
+        <i class="icon">
+          <img src="img/account/sign-out.png" width="32px" height="32px"/>
+        </i>
+        Log Out
+        <i class="icon ion-ios-arrow-right"></i>
+      </a>-->
+    </div>
+    <div style="padding: 0 20% 0 20%;">
+    	<button type="submit" class="button button-block button-assertive" href="#" ng-click="showLogOutMenu()">  Logout  </button>
+    </div>
+  </ion-content>
+</ion-view>

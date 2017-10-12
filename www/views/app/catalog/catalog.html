@@ -1,0 +1,32 @@
+<ion-view class="account-view">
+  <ion-tabs class="tabs-striped tabs-top tabs-icon-top fade-in-not-out">
+    <ion-tab title="Men" icon-on="custom-man" icon-off="custom-man" ng-click="selectItemTypeTab(1)">
+      <ion-nav-view name="men-tab"></ion-nav-view>
+    </ion-tab>
+
+    <ion-tab title="Women" icon-on="custom-woman" icon-off="custom-woman" ng-click="selectItemTypeTab(2)">
+      <ion-nav-view name="women-tab"></ion-nav-view>
+    </ion-tab>
+
+    <ion-tab title="Kids" icon-on="custom-kid" icon-off="custom-kid" ng-click="selectItemTypeTab(3)">
+      <ion-nav-view name="kids-tab"></ion-nav-view>
+    </ion-tab>
+
+    <ion-tab title="Infants" icon-on="custom-infant" icon-off="custom-infant" ng-click="selectItemTypeTab(4)">
+      <ion-nav-view name="infants-tab"></ion-nav-view>
+    </ion-tab>
+
+    <ion-tab title="Utilities" icon-on="custom-utilities" icon-off="custom-utilities" ng-click="selectItemTypeTab(5)">
+      <ion-nav-view name="utilities-tab"></ion-nav-view>
+    </ion-tab>
+  </ion-tabs>
+</ion-view>
+
+
+
+<!--   <ion-tabs class="tabs-striped tabs-top tabs-icon-top fade-in-not-out">
+      <ion-tab ng-repeat="type in itemTypes" title="{{type.name}}" icon-on="{{type.code}}" icon-off="{{type.code}}" ng-click="selectItemTypeTab({{$index+1}})"
+                href="#/app/catalog/{{type.name | lowercase}}">
+        <ion-nav-view name="{{type.name}}" cache-view="false"></ion-nav-view>
+      </ion-tab>
+  </ion-tabs> -->

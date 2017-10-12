@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+  <!--<meta http-equiv="Content-Security-Policy"-->
+  <!--content="default-src *; style-src &apos;self&apos; &apos;unsafe-inline&apos;; script-src &apos;self&apos; &apos;unsafe-inline&apos; &apos;unsafe-eval&apos; 192.168.10.103:35729">-->
+  <title>Laundry Waves</title>
+
+  <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+  <link href="css/ionic.app.css" rel="stylesheet">
+  <link href="lib/tabbedSlideBox/tabSlideBox.css" rel="stylesheet">
+  <link href="css/validationStyles.css" rel="stylesheet">
+  <link href="css/typeahead.css" rel="stylesheet">
+  <!--pages-->
+  <link href="css/pages/home-page.css" rel="stylesheet">
+  <link href="css/pages/account-page.css" rel="stylesheet">
+  <link href="css/pages/item-page.css" rel="stylesheet">
+  <link href="css/pages/addon-page.css" rel="stylesheet">
+  <link href="css/pages/order-page.css" rel="stylesheet">
+  <link href="css/pages/address-page.css" rel="stylesheet">
+
+  <!--overrides-->
+  <link href="css/baseOverrides.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+  <link href="css/custom.css" rel="stylesheet">
+  <link href="css/customIcons.css" rel="stylesheet">
+
+  <!--3rd Party JS-->
+  <script src="lib/jquery/dist/jquery.js"></script>
+  <script src="lib/ionic/js/ionic.bundle.js"></script>
+  <script src="lib/moment/moment.js"></script>
+  <script src="lib/angular-messages/angular-messages.js"></script>
+  <script src="lib/angular-resource/angular-resource.js"></script>
+  <script src="lib/angular-filter/dist/angular-filter.js"></script>
+  <script src="lib/underscore/underscore.js"></script>
+  <script src="lib/ngstorage/ngStorage.min.js"></script>
+  <script src="lib/typeahead.js/dist/bloodhound.js"></script>
+  <script src="lib/typeahead.js/dist/typeahead.jquery.js"></script>
+  <script src="lib/typeahead.js/dist/typeahead.bundle.js"></script>
+  <script src="lib/angular-typeahead/angular-typeahead.js"></script>
+  <script src="lib/tabbedSlideBox/tabSlideBox.js"></script>
+  <script src="lib/tabbedSlideBox/tabSlideBoxScrollExtension.js"></script>
+  <script src="lib/ionic-native-transitions/dist/ionic-native-transitions.min.js"></script>
+
+  <!-- cordova script (this will be a 404 during development) -->
+  <script src="lib/ngCordova/dist/ng-cordova.min.js"></script>
+  <script src="cordova.js"></script>
+
+  <!-- your app's js -->
+  <script src="js/app.js"></script>
+  <script src="js/endpoints.js"></script>
+  <script src="js/translator.js"></script>
+  <script src="js/factories/helperFactory.js"></script>
+  <script src="js/factories/initializeFactory.js"></script>
+  <script src="js/factories/storageFactory.js"></script>
+  <script src="js/factories/rewardFactory.js"></script>
+  <script src="js/factories/userFactory.js"></script>
+  <script src="js/filters.js"></script>
+  <script src="js/services/userService.js"></script>
+  <script src="js/services/apartmentService.js"></script>
+  <script src="js/services/categoryService.js"></script>
+  <script src="js/services/itemsService.js"></script>
+  <script src="js/services/orderService.js"></script>
+  <script src="js/services/settingsService.js"></script>
+  <script src="js/app/appControllers.js"></script>
+  <script src="js/welcomeController.js"></script>
+  <script src="js/auth/registerController.js"></script>
+  <script src="js/auth/loginController.js"></script>
+  <script src="js/app/home/homeController.js"></script>
+  <script src="js/app/orders/addressController.js"></script>
+  <script src="js/app/orders/addressEditController.js"></script>
+  <script src="js/app/orders/ordersController.js"></script>
+  <script src="js/app/orders/orderSummaryController.js"></script>
+  <script src="js/app/catalog/catalogController.js"></script>
+  <script src="js/app/catalog/itemController.js"></script>
+  <script src="js/app/account/accountController.js"></script>
+  <script src="js/app/account/accountProfileController.js"></script>
+  <script src="js/app/account/orderHistoryController.js"></script>
+  <script src="js/app/account/orderDetailsController.js"></script>
+  <script src="js/app/account/rewardsController.js"></script>
+  <script src="js/app/account/changePasswordController.js"></script>
+  <script src="js/offline/OfflineController.js"></script>
+  <script src="js/offline/OfflineHomeController.js"></script>
+  <script src="js/directives.js"></script>
+</head>
+<body ng-app="LaundryWaves">
+<ion-nav-view></ion-nav-view>
+
+<!--List of Partials-->
+<script id="error-list.html" type="text/ng-template">
+  <!--<div class="error" ng-message="required">-->
+  <!--<i class="ion-information-circled"></i>-->
+  <!--This field is required!-->
+  <!--</div>-->
+  <!--<div class="error" ng-message="minlength">-->
+  <!--<i class="ion-information-circled"></i>-->
+  <!--Minimum length of this field is 5 characters!-->
+  <!--</div>-->
+  <!--<div class="error" ng-message="maxlength">-->
+  <!--<i class="ion-information-circled"></i>-->
+  <!--Maximum length of this field is 10 characters!-->
+  <!--</div>-->
+  <!--<div class="error" ng-message="email">-->
+  <!--<i class="ion-information-circled"></i>-->
+  <!--Not a valid email!-->
+  <!--</div>-->
+  <!--<div class="error" ng-message="number">-->
+  <!--<i class="ion-information-circled"></i>-->
+  <!--Not a valid phone number!-->
+  <!--</div>-->
+</script>
+</body>
+</html>

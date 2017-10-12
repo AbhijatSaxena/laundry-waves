@@ -1,0 +1,75 @@
+<ion-view title="{{selectedCategory.name}}">
+  <ion-nav-buttons side="left">
+    <button class="home-nav" style="border: none; background-color: transparent;font-size: 17px"
+            native-ui-sref="app.home" native-ui-sref-opts="" native-options="{type: 'slide', direction:'right'}">
+      <span class="ion-ios-arrow-back">&nbsp;Home</span>
+    </button>
+  </ion-nav-buttons>
+
+  <ion-content class="item-page" style="min-height:100% !important;top:0 !important;bottom:0 !important;">
+    <ion-scroll style="height:100%;">
+      <ion-list>
+        <div class="row" style="background-color: white">
+          <div class="col no-padding">
+            <div class="item-input">
+              <i class="icon ion-ios-search-strong placeholder-icon"></i>
+              <input type="search" placeholder="Search" ng-model="itemSearch.item_name" class="full-width">
+              <button ng-if="itemSearch.item_name.length"
+                      class="button button-icon ion-android-close input-button"
+                      ng-click="clearSearch()">
+              </button>
+            </div>
+          </div>
+        </div>
+        <ion-item class="no-padding" ng-repeat="item in itemData | filter:itemSearch">
+          <div class="row no-padding">
+            <!--Icon-->
+            <div class="col col-25 col-center">
+              <img ng-src="http://www.cbsatwork.com/laundry/uploads/items/{{item.item_image}}">
+              <!--<div style="background-color: coral; width: 65px; height: 65px"></div>-->
+            </div>
+            <div class="col col-75 no-padding">
+              <!--Upper Row-->
+              <div class="row">
+                <div class="col col-50 item-text-wrap">
+                  <p>{{item.item_name}}</p>
+                </div>
+                <div class="col col-30 text-left">
+                  &#8377;{{item.item_cost}}
+                  <span ng-show="item.qty > 0">X {{item.qty}}</span>
+                </div>
+                <div class="col col-20 text-right">
+                  &#8377;{{item.qty * item.item_cost}}
+                </div>
+              </div>
+
+              <!--Lower Row-->
+              <div class="row text-center">
+                <div class="col col-10 col-center no-padding">
+                  <i class="ion-ios-minus-outline item-incdec"
+                     ng-click="decrementQty(item)">
+                  </i>
+                </div>
+                <div class="col col-10 col-center">
+                  {{item.qty}}
+                </div>
+                <div class="col col-10 col-center no-padding">
+                  <i class="ion-ios-plus-outline item-incdec"
+                     ng-click="incrementQty(item, 99)">
+                  </i>
+                </div>
+                <div class="col col-40">
+                  <!--Fixups-->
+                </div>
+                <div class="col button button-small no-padding"
+                     style="background-color: #3390d3; color: white;" ng-click="showAddon(item)">
+                  Addon
+                </div>
+              </div>
+            </div>
+          </div>
+        </ion-item>
+      </ion-list>
+    </ion-scroll>
+  </ion-content>
+</ion-view>

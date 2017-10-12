@@ -1,0 +1,113 @@
+<ion-view>
+  <ion-nav-title>
+    <span>Order Summary</span>
+  </ion-nav-title>
+  <ion-content>
+    <div class="row">
+      <div class="col text-center">
+        {{order.message}}
+      </div>
+    </div>
+    <hr/>
+    <div class="row">
+      <div class="col text-left">
+        <!--<span style="font-weight: 500">-->
+        <!--Order ID: #10035238583-->
+        <!--</span>-->
+        <!--<br/>-->
+        <span style="font-size: 12px; color: grey">
+          {{date}}
+        </span>
+      </div>
+    </div>
+    <hr/>
+    <div class="row">
+      <div class="col">
+        <div style="font-size: 17px; font-weight: 700">
+          Bill Details
+          <hr class="lightHr"/>
+        </div>
+      </div>
+    </div>
+    <!--ITEM PRICING-->
+    <div class="row" ng-repeat="category in categories track by category.id"
+         ng-if="getFilteredItems(category.id).length > 0">
+      <div class="col">
+        <div class="row no-padding" style="font-weight: 500">
+          <div class="col no-padding">
+            {{category.name}}
+          </div>
+        </div>
+        <div class="row no-padding" ng-repeat="item in getFilteredItems(category.id) track by item.item_id">
+          <div class="col no-padding">
+            <div class="row no-padding">
+              <div class="col no-padding" style="padding-bottom: 5px">
+                {{item.qty}}&nbsp;x&nbsp;{{item.item_name}}
+              </div>
+              <div class="col text-right no-padding">
+                &#8377;{{item.qty*item.item_cost}}
+              </div>
+            </div>
+            <div class="row no-padding" ng-repeat="addon in item.item_addons" ng-if="addon.qty > 0">
+              <div class="col no-padding">
+                {{addon.qty}}&nbsp;x&nbsp;{{addon.name}}
+              </div>
+              <div class="col text-right no-padding">
+                &#8377;{{addon.qty*addon.cost}}
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr class="lightHr"/>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        Subtotal
+      </div>
+      <div class="col text-right">
+        &#8377;{{order.subTotal}}
+      </div>
+    </div>
+    <div class="row" ng-show="order.redeem">
+      <div class="col">
+        Redeemable Amount
+      </div>
+      <div class="col text-right">
+        &#8377;{{order.redeemableAmount}}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        Total
+      </div>
+      <div class="col text-right">
+        &#8377;{{order.total}}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        VAT and service tax
+      </div>
+      <div class="col text-right">
+        &#8377;{{order.taxedAmount}}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        Total Payable Amount
+      </div>
+      <div class="col text-right">
+        &#8377;{{order.totalPayableAmount}}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <button type="submit" class="button button-block"
+                style="background-color: #3390d3;color: white" ng-click="continue()">
+          Continue
+        </button>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

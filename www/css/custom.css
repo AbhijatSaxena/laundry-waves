@@ -1,0 +1,38 @@
+/* Custom CSS */
+a{ cursor:pointer;}
+.list .lbl{border:transparent}
+.list .lbl-first{border-top:1px solid #ddd;border-bottom:transparent;border-left:transparent;border-right:transparent;}
+.list .lbl-last{border-bottom:1px solid #ddd;border-top:transparent;border-left:transparent;border-right:transparent;}
+.lbl i{width:18px;}
+.lbl i img{margin-top: 6px; width:18px; height:18px;}
+.lbl-last i img{ margin-top: 6px; width:18px; height:18px;}
+.lbl-first i img{ margin-top: 6px; width:18px; height:18px;}
+.lbl-first i{width:18px;}
+.lbl-last i{width:18px;}
+.list .lbl1{border:transparent; padding: 3px 6px 0px 12px;}
+.lbl1-last{border-bottom:1px solid #ddd;border-top:transparent;border-left:transparent;border-right:transparent;padding: 3px 6px 0px 12px;}
+.lbl1 i{    padding: 0px 0px 8px 0px;}
+.lbl1-last i{    padding: 0px 0px 8px 0px;}
+.lbl1 i img{ width:32px; height:32px;}
+.lbl1-last i img{ width:32px; height:32px;}
+.pic{border-bottom: 1px solid #D9D9D9;width: 100%;margin-left: 10px;}
+.pic-last{width: 100%;margin-left: 10px;}
+.pic1{border-bottom: 1px solid #D9D9D9;;width: 100%;margin-left: 10px; height:37px; line-height: 25px; font-size:15px;}
+.pic1-last{width: 100%;margin-left: 10px; height:37px;    line-height: 25px;font-size:15px;}
+.pic1 i{float: right;margin-right: 16px;    line-height: 32px;}
+.pic1-last i{float: right;margin-right: 16px;    line-height: 32px;}
+.crd{box-shadow:none !important;    margin-top: -18px;}
+.crd .item{border-left:transparent;border-right:transparent;border-top:transparent;    border-bottom: 2px solid #ddd;}
+.crd .item img{width:30px; height:30px;}
+.crd .item p{white-space:normal;}
+.item-thumbnail-left, .item-thumbnail-left .item-content {
+    padding-top: 8px;
+    padding-left: 60px;
+    min-height: 50px;
+	}
+.rw1{height: 45px;    padding-top: 0px;    background: #fff;padding-bottom: 0px; }
+.rw1[ng-click]:hover {
+    cursor: pointer; }
+.rw1.active,
+.rw1.activated,.activated{background: #ddd}
+.cl1{border-bottom: 1px solid #ddd;    line-height: 34px;  padding-right: 25px;cursor:pointer;}

@@ -1,0 +1,39 @@
+<ion-view class="home-view">
+  <ion-nav-title>
+    <span>Laundry Waves</span>
+  </ion-nav-title>
+  <ion-nav-buttons side="left">
+    <button class="button-icon ion-android-person home-nav" ui-sref="app.account"></button>
+  </ion-nav-buttons>
+<!--   <ion-nav-buttons side="right">
+    <button class="button-icon ion-ios-box home-nav" ui-sref="app.orders"></button>
+  </ion-nav-buttons> -->
+  <ion-content overflow-scroll="false" class="homepage">
+    <ion-slide-box pager-click="navSlide(index)" auto-play="true" does-continue="true">
+      <ion-slide>
+        <img style="width: 100%;"
+             src="img/slider/1.jpg">
+      </ion-slide>
+      <ion-slide>
+        <img style="width: 100%;"
+             src="img/slider/2.jpg">
+      </ion-slide>
+      <ion-slide>
+        <img style="width: 100%;"
+             src="img/slider/3.jpg">
+      </ion-slide>
+      <ion-slide>
+        <img style="width: 100%;"
+             src="img/slider/4.jpg">
+      </ion-slide>
+    </ion-slide-box>
+    <div class="text-center" style="font-size: 14px; font-weight: 600">SERVICES</div>
+    <div class="row no-padding" style="flex-wrap: wrap;" ng-repeat="category in categories">
+      <div class="col col-100" style="padding: 0px; margin: 0">
+        <img ng-src="http://www.cbsatwork.com/laundry/uploads/services/{{category.image}}" class="item no-padding" native-ui-sref="app.catalog.men"
+             native-ui-sref-opts="" native-options="{type: 'slide', direction:'left'}" ng-click="setCategory(category)"
+             style="width: 100%; margin: 0">
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,84 @@
+// spinner-on-load
+@include keyframes(spin) {
+  from {
+    @include transform(rotate(0deg));
+  }
+  to {
+    @include transform(rotate(359deg));
+  }
+}
+.spinner-on-load
+{
+	position: absolute;
+	font-size: $spinner-size;
+	width: $spinner-size;
+	height: $spinner-size;
+	line-height: $spinner-size;
+  color: $spinner-color;
+	@include animation(spin 2s infinite linear);
+	@include calc(top, "50% - #{($spinner-size/2)}");
+	@include calc(left, "50% - #{($spinner-size/2)}");
+}
+ion-spinner.spinner-on-load
+{
+	@include animation(none);
+  stroke: $spinner-color;
+	width: $spinner-svg-size;
+  height: $spinner-svg-size;
+	line-height: inherit;
+	@include calc(top, "50% - #{($spinner-svg-size/2)}");
+	@include calc(left, "50% - #{($spinner-svg-size/2)}");
+}
+
+// Multimedia background
+.multi-bg-outer
+{
+  position: relative;
+  background-color: rgba(darken($multi-bg, 10%), 0.7);
+  height: 100%;
+  @include transition(all ease-in-out .3s);
+
+  background-size: cover;
+  background-repeat: no-repeat;
+  z-index: -2;
+
+  &.finish-loading
+  {
+    background-color: transparent;
+  }
+
+  .bg-overlay
+  {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: $overlay-bg;
+    z-index: -1;
+    opacity: 0.6;
+  }
+
+  .multi-bg
+  {
+    display: none;
+  }
+}
+
+.modal-view
+{
+  background-color: $modal-bg;
+
+	ion-header-bar
+	{
+		background-color: $modal-bg;
+	}
+
+  .modal-title
+  {
+    color: $auth-color;
+    font-size: 22px;
+    font-weight: 400;
+		font-size: 16px;
+	}
+}

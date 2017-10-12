@@ -1,0 +1,74 @@
+a {
+  color: #3390d3;
+  text-decoration: none;
+}
+
+/*Login/Registration Page Header Overrides START*/
+.auth-view ion-nav-bar ion-header-bar, .bar {
+  background-color: #3390d3 !important;
+}
+
+.bar.bar-balanced.bar-footer{
+  cursor: pointer; 
+  background-color: #233946 !important; 
+  border-top:2px solid #3390d3;
+}
+
+.auth-view ion-nav-bar *, .bar {
+  color: white;
+}
+
+/*Login/Registration Page Header Overrides END*/
+
+/*Transparency for Tabs START*/
+.tab-nav.tabs {
+  opacity: 0.8;
+  background-color: #eeeeee;
+  padding-top: 6px;
+}
+
+.auth-view .form-fields-outer {
+  background-color: transparent;
+}
+
+/*Transparency for Tabs END*/
+
+/*Icon Adjustment for Tabs START*/
+.tabs-top.tabs-striped .tab-item.tab-item-active, .tabs-top.tabs-striped .tab-item.active, .tabs-top.tabs-striped .tab-item.activated {
+  padding-top: 1px;
+}
+
+.tabs-icon-top > .tabs .tab-item, .tabs-icon-top.tabs .tab-item, .tabs-icon-bottom > .tabs .tab-item, .tabs-icon-bottom.tabs .tab-item {
+  padding-top: 1px;
+}
+
+/*Icon Adjustment for Tabs END*/
+
+/*Base Radio Controls*/
+i.radio-icon.disable-pointer-events.icon.ion-checkmark {
+  color: #3390d3;
+  font-size: 100%;
+  /*padding : 5px;*/
+}
+
+.item-content.disable-pointer-events {
+  font-size: 80%;
+  /*padding: 5px;*/
+}
+
+.item-checkbox-right .checkbox input,
+.item-checkbox-right .checkbox-icon {
+  float: right;
+}
+
+.item-radio input:checked + .radio-content .radio-icon {
+    visibility: visible;
+    color: #3390d3;
+}
+
+.bar .title{
+       text-overflow: inherit;
+    white-space: nowrap;
+    font-size: 17px;
+    color: #fff;
+}

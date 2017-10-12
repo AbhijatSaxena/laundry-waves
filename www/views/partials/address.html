@@ -1,0 +1,79 @@
+<ion-modal-view class="modal-view">
+  <ion-header-bar>
+    <h1 class="title modal-title">New Address</h1>
+    <a class="button button-clear" ng-click="addressModal.hide()" style="color:#fff;"><span class="icon ion-ios-close-empty"></span></a>
+  </ion-header-bar>
+  <ion-content class="address-page no-padding">
+    <div class="row no-padding">
+      <div class="col no-padding">
+        <!--Apartment Mode-->
+        <form name="addressForm" novalidate
+              ng-if="profile.type == 'apartment'">
+          <div class="text-left col app-color"><h5>&nbsp;Add New Address</h5></div>
+          <div class="form-fields-outer list list-inset">
+            <!--Apartment Name-->
+            <label class="item item-input">
+              <input class="item item-input" style="background-color: white" type="text" placeholder="Apartment Name"
+                     name="apartmentName" ng-model="apartmentAddress.apartmentName" readonly>
+            </label>
+
+            <!--Block-->
+            <label class="item item-input item-select" ng-class="{ 'has-errors' : addressForm.block.$invalid && addressForm.$submitted,
+                       'no-errors' : addressForm.block.$valid && addressForm.$submitted}">
+              <span class="input-label" style="color: #999999;">
+                <span style="font-size: 14px;">Block</span>
+              </span>
+              <select name="block" data-ng-model="apartmentAddress.block"
+                      data-ng-options="opt.value as opt.name for opt in blocks" required>
+              </select>
+            </label>
+
+
+            <div class="item item-input" id="flat-selection" style="overflow: visible" ng-class="{ 'has-errors' : addressForm.flat.$invalid && addressForm.$submitted,
+                       'no-errors' : addressForm.flat.$valid && addressForm.$submitted}">
+              <input type="text" options="flatSourceOptions" datasets="flatSource" name="flat"
+                     placeholder="Enter Flat Name" ng-model="apartmentAddress.flat" style="background-color: white;" required
+                     sf-typeahead>
+            </div>
+            <label class="item item-input">
+              <input type="text" placeholder="Detailed Address" name="phone" ng-model="apartmentAddress.address">
+            </label>
+          </div>
+          <button class="button button-full button-positive" ng-click="postAddress(addressForm);addressModal.hide()">Add</button>
+        </form>
+
+        <!--Individual Mode-->
+        <form name="individualAddressForm" novalidate
+              ng-if="profile.type == 'user'">
+              <div class="row">
+          <div class="text-left col"><h5 class="app-color"> Address Details</h5></div>
+
+          </div>
+          <div class="form-fields-outer card crd" style="padding:10px">
+            <label class="item " ng-class="{ 'has-errors' : showErrors}" style="padding:0px">
+              <input type="text" placeholder="Flat No / House No / Colony Name" name="field1" ng-model="individualAddress.field1" required style="width:100%;">
+            </label>
+            <label class="item item-input item-select" ng-class="{ 'has-errors' : showErrors}"  style="padding:0px">
+              <div class="input-label">
+               <span class="app-color"> Select Area </span>
+              </div>
+               <select name="area" ng-model="individualAddress.area" required >
+                <option ng-repeat="area in areas" value="{{area.name}}">{{area.name}}</option>
+               </select>
+            </label>
+
+            <label class="item item-input" ng-class="{ 'has-errors' : showErrors}"  style="padding:0px">
+              <input type="text" placeholder="Land Mark" name="landMark" ng-model="individualAddress.landMark" required >
+            </label>
+
+            <label class="item item-input" ng-class="{ 'has-errors' : showErrors}"  style="padding:0px">
+              <input type="number" placeholder="Pin Code" name="pincode" ng-model="individualAddress.pincode" required >
+            </label>
+
+        <button class="button button-block button-positive" style="background:#3390d3;" ng-click="postAddress(individualAddressForm)">Save</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </ion-content>
+</ion-modal-view>

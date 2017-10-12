@@ -1,0 +1,42 @@
+<div class="addon-page no-padding">
+  <ion-scroll style="height:100%;">
+    <ion-list>
+      <ion-item class="no-padding" ng-repeat="addon in item.item_addons track by $index">
+        <div class="row no-padding">
+          <!--Icon-->
+          <div class="col no-padding">
+            <!--Upper Row-->
+            <div class="row">
+              <div class="col text-left">
+                <p>{{addon.name}}</p>
+              </div>
+            </div>
+            <!--Lower Row-->
+            <div class="row">
+              <div class="col col-10 col-center no-padding">
+                <i class="ion-ios-minus-outline item-incdec"
+                   ng-click="decrementQty(addon)">
+                </i>
+              </div>
+              <div class="col col-10 col-center">
+                {{addon.qty}}
+              </div>
+              <div class="col col-10 col-center no-padding">
+                <i class="ion-ios-plus-outline item-incdec"
+                   ng-click="incrementQty(addon, item.qty)">
+                </i>
+              </div>
+              <div class="col col-offset-20 text-left">
+                &#8377;{{addon.cost}}
+                <span ng-show="addon.qty > 0">X {{addon.qty}}</span>
+              </div>
+              <div class="col text-right">
+                &#8377;{{addon.qty * addon.cost}}
+              </div>
+            </div>
+          </div>
+        </div>
+      </ion-item>
+    </ion-list>
+  </ion-scroll>
+</div>
