@@ -5,6 +5,7 @@ The app is live on Google PlayStore & Apple's App Store and is gaining popularit
 
 # Links to the Mobile App #
 Google Play Store - https://play.google.com/store/apps/details?id=com.laundrywaves.www
+
 Apple App Store - https://itunes.apple.com/bb/app/laundrywaves/id1198487653?mt=8
 
 # !! Important !! #
