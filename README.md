@@ -8,11 +8,6 @@ Google Play Store - https://play.google.com/store/apps/details?id=com.laundrywav
 
 Apple App Store - https://itunes.apple.com/bb/app/laundrywaves/id1198487653?mt=8
 
-# !! Important !! #
-This source code is for educational purposes only.
-The live source code of Laundry Waves is present as a private repository.
-
-
 # LaundryWaves v1.0.0 #
 ## Languages Used ##
 
@@ -34,3 +29,8 @@ run **ionic platform add ios**
 
 ### run livereloadable project ###
 run **ionic serve**
+
+
+# !! Important !! #
+This source code is for educational purposes only.
+The live source code of Laundry Waves is present as a private repository.
