@@ -28,6 +28,11 @@ run **ionic platform add ios**
 ### run livereloadable project ###
 run **ionic serve**
 
+## Screenshots ##
+<img src="images/splash_page.jpg"/>
+<img src="images/home_page.jpg"/>
+<img src="images/catalog_page.jpg"/>
+<img src="images/order_page.jpg.jpg"/>
 
 # !! Important !! #
 This source code is for educational purposes only.
