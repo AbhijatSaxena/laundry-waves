@@ -32,7 +32,7 @@ run **ionic serve**
 <img src="images/splash_page.jpg"/>
 <img src="images/home_page.jpg"/>
 <img src="images/catalog_page.jpg"/>
-<img src="images/order_page.jpg.jpg"/>
+<img src="images/order_page.jpg"/>
 
 # !! Important !! #
 This source code is for educational purposes only.
