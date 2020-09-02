@@ -4,8 +4,6 @@ Laundry Waves is the first production level hybrid mobile app developed complete
 The app is live on Google PlayStore & Apple's App Store and is gaining popularity in Hyderabad City.
 
 # Links to the Mobile App #
-Google Play Store - https://play.google.com/store/apps/details?id=com.laundrywaves.www
-
 Apple App Store - https://itunes.apple.com/bb/app/laundrywaves/id1198487653?mt=8
 
 # LaundryWaves v1.0.0 #
